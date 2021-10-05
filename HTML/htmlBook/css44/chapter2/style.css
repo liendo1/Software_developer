@@ -1,0 +1,11 @@
+* {
+    outline: 1px #ccc solid;
+    margin: 10px;
+    padding: 10px;
+}
+body, nav, main ,article{
+    display: flex;
+}
+body, article {
+    flex-direction: column;
+}

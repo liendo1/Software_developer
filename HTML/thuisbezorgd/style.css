@@ -1,0 +1,218 @@
+/* Generic styles */
+
+body {
+	font-family: Avant Garde,Century Gothic,Helvetica,Arial,sans-serif;
+	font-size: 0.95rem;
+	margin: 0;
+	padding: 0;
+}
+
+img.icon {
+	max-height: 16px;
+}
+
+/* Used for elements that should take a maximum width of 1000px */
+.centered {
+	padding: 0 40px;
+	max-width: 1000px;
+	margin: 0 auto;
+	display: flex;
+	flex-grow: 1;
+	flex-shrink: 0;
+	align-items: center;
+	justify-content: space-between;
+	color: #666;
+}
+
+.styles  {
+	display: flex;
+	align-items: initial;
+	height: 100%;
+
+}
+
+/* The orange menu bar */
+
+header {
+	background-color: #ff8000;
+	display: flex;
+	justify-content: space-between;
+	height: 3em;
+	align-items: center;
+}
+
+header img.logo {
+	width: 160px;
+	padding-left: 0.5rem;
+}
+
+header .middle {
+	display: flex;
+	flex-grow: 1;
+	flex-shrink: 0;
+	justify-content: center;
+	color: white;
+	font-weight: bold;
+
+}
+.menu {
+	margin-left: 1.75rem;
+	margin-right: 1.2rem;
+}
+.current-search {
+	border-bottom: 2px solid #fff;
+}
+.flag {
+	width: 16px;
+    height: 16px;
+    padding: 6px;
+    border-radius: 50%;
+    background-color: #fff;
+    text-align: center;
+}
+.right {
+	flex-direction: column;
+}
+.right h2 div {
+	flex-grow: 0;
+}
+.right footer {
+	flex-grow: 1;
+}
+h2 {
+	margin: 0;
+}
+
+
+footer {
+	width: 100%;
+}
+
+
+
+/* The dark blue covid notice */
+
+section.covid {
+	background-color: #0a3847;
+	display: flex;
+	height: 50px;
+}
+
+.message {
+	color:#ffffff;
+	float: left;
+	position: absolute;
+	margin-left: 50px;
+}
+
+.info {
+	margin-right: 30px;
+}
+/* The banner with the food image */
+
+section.banner {
+	/* Image file: images/variety_desktop.jpg */
+	background-image: url("variety_desktop.jpg");
+	height: 200px;
+}
+.banner {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 2.25rem;
+	color: #ffffff;
+	font-weight: bold;
+
+}
+
+.selected {
+	width: 25px;
+    height: 15px;
+    padding: 10px;
+    border-radius: 40%;
+    background-color: #ff8000;
+    text-align: center;
+	color: #ffffff;
+}
+.more {
+	color: #ff8000;
+}
+
+/* The food style filter */
+
+section.styles {
+	background-color: #f8f5f2;
+	font-family: Roboto Slab,Arial,serif;
+	height: 64px;
+}
+
+
+
+
+/* The search box */
+
+section.search {
+	display: flex;
+
+	/* Hint: you don't actually need to get the search icon inside the <input>. Instead you can hide the border of the <input> and create your own border. */
+}
+.box {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	border: 1px solid #ebebeb;
+	height: 2rem;
+}
+input {
+	width: 100%;
+	border: none;
+}
+
+/* The list of restaurants */
+.results {
+	display: flex;
+}
+
+
+.left {
+	width: 100px;
+	padding: 20px 20px 0 20px;
+}
+
+.logo {
+	width: 80%;
+
+}
+.stars {
+	width: 100%;
+	font-size: 80%;
+	display: flex;
+	padding: 10px 10px 10px 0;
+}
+.right {
+	border: 1px solid #ebebeb;
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+}
+
+
+article {
+	color: #666;
+	font-family: Roboto Slab,Arial,serif;
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	border: 1px solid #ebebeb;
+
+}
+
+article h2 {
+	font-family: Avant Garde,Century Gothic,Helvetica,Arial,sans-serif;
+	color: #0a3847;
+}
+
+article img.star {
+	max-height: 11px;
+}
+

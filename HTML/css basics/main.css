@@ -1,0 +1,121 @@
+/* Generic styles */
+
+body {
+	font-family: Avant Garde,Century Gothic,Helvetica,Arial,sans-serif;
+	font-size: 0.95rem;
+	margin: 0;
+	padding: 0;
+}
+
+img.icon {
+	max-height: 16px;
+}
+
+/* Used for elements that should take a maximum width of 1000px */
+.centered {
+	padding: 0 40px;
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+
+
+/* The orange menu bar */
+
+
+.top-navigation{
+	background-color: #ff8000;
+	display: flex;
+	height: 60px;
+	margin: auto;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px;
+}
+.navigation-left-logos{
+	display: inline-flex;
+	align-items: center;
+	margin: 0px;
+}
+
+
+
+.flag {
+	margin-right: 100px;
+}
+.navigation-right-logos {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	margin-right: 30px;
+}
+
+.middle {
+	align-items: center;
+	border-bottom: 3px solid white;
+	color: white;
+	padding-bottom: 3px;
+	font-size: 17px;
+	font-weight: bold;
+}
+
+header img.logo {
+	width: 160px;
+	padding-left: 0.5rem;
+}
+
+
+
+/* The dark blue covid notice */
+
+section.covid {
+	background-color: #0a3847;
+}
+
+
+
+/* The banner with the food image */
+
+section.banner {
+	/* Image file: images/variety_desktop.jpg */
+}
+
+
+
+/* The food style filter */
+
+section.styles {
+	background-color: #f8f5f2;
+	font-family: Roboto Slab,Arial,serif;
+	display: flex;
+	height: 50px;
+	flex-direction: row;
+	overflow: hidden;
+}
+
+
+
+/* The search box */
+
+section.search {
+	/* Hint: you don't actually need to get the search icon inside the <input>. Instead you can hide the border of the <input> and create your own border. */
+}
+
+
+
+/* The list of restaurants */
+
+article {
+	color: #666;
+	font-family: Roboto Slab,Arial,serif;
+}
+
+article h2 {
+	font-family: Avant Garde,Century Gothic,Helvetica,Arial,sans-serif;
+	color: #0a3847;
+}
+
+article img.star {
+	max-height: 11px;
+}
+

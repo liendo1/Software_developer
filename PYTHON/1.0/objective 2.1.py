@@ -1,0 +1,10 @@
+
+print("*** Welcome to the programmer's cookbook ***")
+print("We are going to create a recipe for omelettes.")
+Name = input("Give your recipe a name (for example 'Awesome Omelette'): ")
+print("Your recipe is named: ")
+People = int(input("How many people: "))
+Egg = int(input("For a " + str(People) + " person omelette, how many eggs do you need: "))
+TableSpoon = int(input("For a " + str(People) + " person omelette, how many tablespoons of milk do you need: "))
+Butter = int(input("For a " + str(People) + " person omelette, how much butter do you need (grams): "))
+print("All done!")
