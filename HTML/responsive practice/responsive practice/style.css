@@ -1,0 +1,84 @@
+body {
+    background: rgb(58,58,58);
+    color:white;
+    font-family: Helvetica Neue, Helvetica, Arial ,sans-serif;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background: black;
+    background-image: url("images/comida.jpg");
+    padding: 20px;
+    background-size: 100%;
+    background-position: center;
+    text-align: center;
+    height: 400px;
+}
+header a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-top: 40px;
+}
+/*Header */
+header .logo a {
+    background-image: url("images/cafes.jpg");
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: 300px;
+    width: 300px;
+    height: 80px;
+    position: relative;
+    text-indent: -9999999px;
+    top: -40px;
+}
+nav ul {
+     margin: 0;
+     padding: 0;
+     list-style-type: none;
+}
+nav li {
+    display: inline-block;
+    margin: 10px 20px;
+}
+/*responsive rules*/
+@media screen and (max-width: 715px) {
+
+
+}
+
+/*Features*/
+.features {
+    background: white;
+    color: gray;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.features figure{
+    text-align: center;
+    margin: auto;
+    width: 200px;
+    text-transform: uppercase;
+}
+.features figure img {
+    width: 200px;
+    border: 1px solid white;
+    border-radius: 50%;
+    box-shadow: gray 0 0 10px;
+}
+
+/*Footer*/
+footer {
+    background: black;
+    color: gray;
+    font-size: 12px;
+    padding: 20px 20px;
+    text-align: center;
+}
+
+
+
+
