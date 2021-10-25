@@ -42,11 +42,13 @@ def showResults(sentences, keyword):
     indexStart = 0
     pageSize = 5
     indexEnd = indexStart + pageSize
+    number = 1
     while True:
+
         print(f"Resultset {indexStart+1} - {indexEnd}")
         for book in summaryList[indexStart:indexEnd]:
-            print(f"{book}")
-
+            print(f"{number}. {book}")
+            number += 1
         print("What do you want to do next?")
         print("1. Previous 5 results")
         print("2. Next 5 results")
@@ -60,6 +62,7 @@ def showResults(sentences, keyword):
             else:
                 indexEnd = indexEnd - (indexEnd - indexStart)
                 indexStart = indexStart - pageSize
+                number = indexStart+1
                 continue
         elif navigateChoice == "2":
             if indexEnd == len(summaryList):
@@ -69,10 +72,12 @@ def showResults(sentences, keyword):
                 if (len(summaryList) - (indexEnd + pageSize)) < 0:
                     indexStart = indexStart + pageSize
                     indexEnd = len(summaryList)
+                    number = indexStart+1
                     continue
             else:
                 indexStart = indexStart + pageSize
                 indexEnd = indexEnd + indexStart
+                number = indexStart+1
                 continue
         elif navigateChoice == "3":
             print("Your results are exported.")
@@ -82,18 +87,8 @@ def showResults(sentences, keyword):
                         if item == phrases["Summary"]:
                             f.write(f"<{phrases['Ranking']}><{phrases['Title']}><{phrases['Caption']}><{phrases['Author']}><{phrases['Publication']}><{phrases['Rating']}><{phrases['Summary']}>")
                             f.write('\n')
-
-
-
-
-
-
-
         elif navigateChoice == "0":
-            return False
-
-
-
+            break
 def main():
     Start = True
     print("*** Welcome to the book collection *** ")
@@ -111,16 +106,15 @@ def main():
                 for line in lines:
                     line_list = line.replace("<","").split(">")
                     sentences.append({"Ranking":line_list[0],"Title":line_list[1],"Caption":line_list[2],"Author":line_list[3],"Publication":line_list[4],"Rating":line_list[5],"Summary":line_list[6]})
-                sentences.pop(0)
                 print("Reading contents.....")
                 print(len(sentences))
                 print(f"Book with the highest rating ({highestRankingNumber(addBooksToList(sentences))}) is is '{highestRankingTitle(sentences,highestRankingNumber(addBooksToList(sentences)))}'.")
                 print(f"The lowest rating is '{lowestRankingNumber(addBooksToList(sentences))}'")
                 print(f"The average rating is {averageRankingNumber(addBooksToList(sentences))}.")
-                print(f"What do you want to do next?")
-                print("1. Search through the catalog")
-                print("2. Read another file")
                 while True:
+                    print(f"What do you want to do next?")
+                    print("1. Search through the catalog")
+                    print("2. Read another file")
                     user = input("Please enter your choice: ")
                     if user == "1":
                         while True:
@@ -129,15 +123,10 @@ def main():
                                 print("Input is invalid try again")
                                 continue
                             else:
-                                print(f"Found {searchKeyWord(sentences,lookUpKeyword)} books.")
                                 showResults(sentences,lookUpKeyword)
-                                if showResults(sentences,lookUpKeyword) == False:
-                                    Start = False
-                                    break
-
+                                break
                     elif user == "2":
                         break
-
         except FileNotFoundError:
             continue
 
