@@ -47,7 +47,7 @@ def searchKeyword(sentences,keyword):
     for elements in sentences:
         if keyword in elements["Caption"]:
             summaryList.append(elements["Caption"])
-    length = len(summaryList)
+    length = len(summaryList) #summaries
     return length
 
 
@@ -153,7 +153,7 @@ while True:
                                   "Publication":line_list[4],"Rating":line_list[5],"Summary":line_list[6]})
             sentences.pop(0)
             print("Reading contents....")
-            countLines()
+            countLines() #len sentences
             print(f"Book with the highest rating ({highestRankingNum(sentences)}) is '{highestRankingTitle(sentences,highestRankingNum(sentences))}'.")
             print(f"The lowest rating is '{lowestRankingNum(sentences)}'")
             print(f"The average rating is {averageRankingNum(sentences)}.")
