@@ -43,6 +43,11 @@ def showResults(sentences, keyword):
     pageSize = 5
     indexEnd = indexStart + pageSize
     number = 1
+    nextOption = len(summaryList) - indexEnd
+    if nextOption > 5 :
+        nextOption = 5
+    else:
+        nextOption = len(summaryList) - indexEnd
     while True:
 
         print(f"Resultset {indexStart+1} - {indexEnd}")
@@ -51,7 +56,7 @@ def showResults(sentences, keyword):
             number += 1
         print("What do you want to do next?")
         print("1. Previous 5 results")
-        print("2. Next 5 results")
+        print(f"2. Next {nextOption} results")
         print("3. Export results")
         print("0. Exit paging")
         navigateChoice = input("Please enter your choice: ")
@@ -107,7 +112,7 @@ def main():
                     line_list = line.replace("<","").split(">")
                     sentences.append({"Ranking":line_list[0],"Title":line_list[1],"Caption":line_list[2],"Author":line_list[3],"Publication":line_list[4],"Rating":line_list[5],"Summary":line_list[6]})
                 print("Reading contents.....")
-                print(len(sentences))
+                print(f"Read {len(sentences)} books.")
                 print(f"Book with the highest rating ({highestRankingNumber(addBooksToList(sentences))}) is is '{highestRankingTitle(sentences,highestRankingNumber(addBooksToList(sentences)))}'.")
                 print(f"The lowest rating is '{lowestRankingNumber(addBooksToList(sentences))}'")
                 print(f"The average rating is {averageRankingNumber(addBooksToList(sentences))}.")
