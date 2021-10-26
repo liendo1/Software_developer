@@ -29,34 +29,27 @@ def searchKeyWord(sentences,keyword):
     summaryList = []
     for elements in sentences:
         if keyword in elements["Summary"]:
-            summaryList.append(elements["Summary"])
-    length = len(summaryList)
-    return length
+            summaryList.append(elements)
 
-def showResults(sentences, keyword):
-    summaryList = []
-    for elements in sentences:
-        if keyword in elements["Summary"]:
-            summaryList.append(elements["Summary"])
+    return summaryList
+
+def showResults(summaryList):
+
     print(f"Found {len(summaryList)} books.")
     indexStart = 0
     pageSize = 5
     indexEnd = indexStart + pageSize
     number = 1
-    nextOption = len(summaryList) - indexEnd
-    if nextOption > 5 :
-        nextOption = 5
-    else:
-        nextOption = len(summaryList) - indexEnd
-    while True:
 
+    while True:
         print(f"Resultset {indexStart+1} - {indexEnd}")
-        for book in summaryList[indexStart:indexEnd]:
-            print(f"{number}. {book}")
-            number += 1
+        for i in range(indexStart,indexEnd):
+            print(f"{i+1}. {summaryList[i]['Title']} ")
+
+
         print("What do you want to do next?")
-        print("1. Previous 5 results")
-        print(f"2. Next {nextOption} results")
+        print(f"1. Previous {pageSize} results")
+        print(f"2. Next {pageSize} results")
         print("3. Export results")
         print("0. Exit paging")
         navigateChoice = input("Please enter your choice: ")
@@ -87,11 +80,9 @@ def showResults(sentences, keyword):
         elif navigateChoice == "3":
             print("Your results are exported.")
             with open('results.txt', 'w') as f:
-                for item in summaryList[indexStart:indexEnd]:
-                    for phrases in sentences:
-                        if item == phrases["Summary"]:
-                            f.write(f"<{phrases['Ranking']}><{phrases['Title']}><{phrases['Caption']}><{phrases['Author']}><{phrases['Publication']}><{phrases['Rating']}><{phrases['Summary']}>")
-                            f.write('\n')
+                for book in summaryList:
+                    f.write(f"<{book['Ranking']}><{book['Title']}><{book['Caption']}><{book['Author']}><{book['Publication']}><{book['Rating']}><{book['Summary']}>")
+                    f.write('\n')
         elif navigateChoice == "0":
             break
 def main():
@@ -113,8 +104,8 @@ def main():
                     sentences.append({"Ranking":line_list[0],"Title":line_list[1],"Caption":line_list[2],"Author":line_list[3],"Publication":line_list[4],"Rating":line_list[5],"Summary":line_list[6]})
                 print("Reading contents.....")
                 print(f"Read {len(sentences)} books.")
-                print(f"Book with the highest rating ({highestRankingNumber(addBooksToList(sentences))}) is is '{highestRankingTitle(sentences,highestRankingNumber(addBooksToList(sentences)))}'.")
-                print(f"The lowest rating is '{lowestRankingNumber(addBooksToList(sentences))}'")
+                print(f"Book with the highest rating ({max(addBooksToList(sentences))}) is is '{highestRankingTitle(sentences,highestRankingNumber(addBooksToList(sentences)))}'.")
+                print(f"The lowest rating is '{min(addBooksToList(sentences))}'")
                 print(f"The average rating is {averageRankingNumber(addBooksToList(sentences))}.")
                 while True:
                     print(f"What do you want to do next?")
@@ -124,11 +115,12 @@ def main():
                     if user == "1":
                         while True:
                             lookUpKeyword = input("Search keyword: ")
-                            if searchKeyWord(sentences,lookUpKeyword) == 0 or lookUpKeyword.isdigit():
+                            summaryList = searchKeyWord(sentences,lookUpKeyword)
+                            if len(summaryList) == 0 or lookUpKeyword.isdigit():
                                 print("Input is invalid try again")
                                 continue
                             else:
-                                showResults(sentences,lookUpKeyword)
+                                showResults(summaryList)
                                 break
                     elif user == "2":
                         break
