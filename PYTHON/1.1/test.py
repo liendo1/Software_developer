@@ -1,5 +1,5 @@
-padre = int(12)
-print(type(padre),padre)
-
-padre = str(padre)
-print(type(padre),padre)
+dataList = [{'a': 1}, {'b': 3}, {'c': 5}]
+for dictionary in dataList:
+    for key in dictionary:
+        print(key ," : ",dictionary[key])
+        print()
